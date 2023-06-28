@@ -5,84 +5,86 @@ $hue-adjust: 135deg;
 
 $hue-contrast: color.hue(color.adjust(hsl($hue, 100%, 50%), $hue: $hue-adjust));
 
-.home_button {
-  --text-base: #{$hue}, 55%, 40%;
-  --text-hover: #{$hue + 30}, 72%, 86%;
-
-  --shadow-start: #{$hue-contrast}, 100%, 72%;
-  --shadow-end: #{$hue + 5}, 90%, 50%;
-
-  --shadow-inner: #{$hue}, 90%, 62%;
-
-  all: unset;
-
+.wrapper_button {
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 10px 45px;
 
-  color: hsla(var(--text-base), 1);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
+  .home_button {
+    --text-base: #{$hue}, 55%, 40%;
+    --text-hover: #{$hue + 30}, 72%, 86%;
 
-  background: inherit;
-  background-clip: padding-box;
-  border: 5px solid hsla(var(--text-base), 1);
-  border-radius: 2em;
-  cursor: pointer;
+    --shadow-start: #{$hue-contrast}, 100%, 72%;
+    --shadow-end: #{$hue + 5}, 90%, 50%;
 
-  transition: 0.25s ease-out;
+    --shadow-inner: #{$hue}, 90%, 62%;
 
-  &::before,
-  &::after {
-    content: "";
-    border-radius: inherit;
-    transition: inherit;
+    all: unset;
+
+    display: flex;
+    justify-content: center;
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
+    top: 50%;
+    padding: 10px 45px;
 
-  &::before {
-    inset: -0.2em;
-    z-index: -1;
+    color: hsla(var(--text-base), 1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
 
-    background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
-    filter: blur(1.2em) saturate(1.2);
+    background: inherit;
+    background-clip: padding-box;
+    border: 5px solid hsla(var(--text-base), 1);
+    border-radius: 2em;
+    cursor: pointer;
 
-    transform-origin: bottom;
-    transform: scaleY(0.5);
-    opacity: 0;
-  }
+    transition: 0.25s ease-out;
 
-  &::after {
-    box-shadow: inset 0 0 0 1px #fff, // inner pixel
-    0 0 0 4px hsla(0deg, 0%, 100%, 0.7), // ligthened border
-    1px 1px 0 4px #fff; // outer pixel
-    mix-blend-mode: overlay;
-
-    opacity: 0;
-  }
-
-  &:hover,
-  &:focus {
-    color: hsla(var(--text-hover), 1);
-
-    border-color: transparent;
-
-    box-shadow:
-            inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), // gloss
-            inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), // inner glow
-            0 1px 1px hsla(var(--shadow-inner), 0.32); // bottom line
-
-    // Show effects
     &::before,
     &::after {
-      transform: none;
-      opacity: 1;
+      content: "";
+      border-radius: inherit;
+      transition: inherit;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    &::before {
+      inset: -0.2em;
+      z-index: -1;
+
+      background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+      filter: blur(1.2em) saturate(1.2);
+
+      transform-origin: bottom;
+      transform: scaleY(0.5);
+      opacity: 0;
+    }
+
+    &::after {
+      box-shadow: inset 0 0 0 1px #fff,
+      0 0 0 4px hsla(0deg, 0%, 100%, 0.7),
+      1px 1px 0 4px #fff;
+      mix-blend-mode: overlay;
+
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: hsla(var(--text-hover), 1);
+
+      border-color: transparent;
+
+      box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1),
+      inset 0 0 1.4em hsla(var(--shadow-inner), 0.32),
+      0 1px 1px hsla(var(--shadow-inner), 0.32);
+
+      &::before,
+      &::after {
+        transform: none;
+        opacity: 1;
+      }
     }
   }
 }

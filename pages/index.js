@@ -9,8 +9,11 @@ const Home = () => {
             <Head>
                 <title>LICHI</title>
             </Head>
-            <div className={styles.home_button}>
-                <Link href="/dresses">Клацк</Link>
+            <div className={styles.wrapper_button}>
+                <Link
+                    className={styles.home_button}
+                    href="/dresses">Клацк
+                </Link>
             </div>
         </>
     );
